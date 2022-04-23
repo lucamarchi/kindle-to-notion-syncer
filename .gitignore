@@ -1,0 +1,16 @@
+.DS_Store
+*.swp
+.attach_pid*
+.classpath
+.factorypath
+.idea
+.java-version
+.project
+.settings
+target
+*.iml
+.gradle
+/build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
