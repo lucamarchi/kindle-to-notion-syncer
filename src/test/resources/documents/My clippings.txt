@@ -1,0 +1,16 @@
+Test title with (parentheses) (Author)
+-  Your Highlight on 1-2 | Added on Tuesday 25 december 2018 18:35:17
+
+Hello people!
+==========
+
+Test book with empty content (Author)
+-  Your Highlight on 1-2 | Added on Tuesday 25 december 2018 18:35:17
+
+
+==========
+Another book (Author1;Author2)
+-  Your Highlight on 1-2 | Added on Tuesday 25 december 2018 18:35:17
+
+Another content.
+==========
