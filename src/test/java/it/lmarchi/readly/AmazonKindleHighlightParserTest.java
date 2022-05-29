@@ -3,19 +3,19 @@ package it.lmarchi.readly;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import it.lmarchi.readly.model.Highlight;
+import it.lmarchi.readly.model.kindle.KindleHighlight;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @Tag("unit")
 final class AmazonKindleHighlightParserTest {
-  private static final Highlight HIGHLIGHT_1 =
-      new Highlight(
+  private static final KindleHighlight HIGHLIGHT_1 =
+      new KindleHighlight(
           "Test title with (parentheses)",
           "Author",
           "Hello people!");
-  private static final Highlight HIGHLIGHT_2 =
-      new Highlight(
+  private static final KindleHighlight HIGHLIGHT_2 =
+      new KindleHighlight(
           "Another book", "Author1;Author2", "Another content.");
 
   @Test

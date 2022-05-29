@@ -1,8 +1,6 @@
 package it.lmarchi.readly;
 
-import static java.util.stream.Collectors.toList;
-
-import it.lmarchi.readly.model.Highlight;
+import it.lmarchi.readly.model.kindle.KindleHighlight;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,7 +27,7 @@ final class AmazonKindleHighlightParser {
   }
 
   /** Returns the highlights of the books in the provided Amazon Kindle device. */
-  List<Highlight> getHighlights() {
+  List<KindleHighlight> getHighlights() {
     String clippingFileContent = getClippingFileContent();
 
     return HIGHLIGHT_PATTERN.matcher(clippingFileContent)
@@ -38,7 +36,7 @@ final class AmazonKindleHighlightParser {
         .peek(highlight ->
             LOG.info("Found the highlight for book '{}' of author '{}'", highlight.title(), highlight.author()))
         .filter(highlight -> !highlight.content().isEmpty())
-        .collect(toList());
+        .toList();
   }
 
   /** Returns the content of the file containing the Kindle highlights. */
@@ -52,7 +50,7 @@ final class AmazonKindleHighlightParser {
   }
 
   /** Returns the highlight of a book from the given regex match. */
-  private static Highlight toHighlight(MatchResult matcher) {
-    return new Highlight(matcher.group(1), matcher.group(2), matcher.group(5));
+  private static KindleHighlight toHighlight(MatchResult matcher) {
+    return new KindleHighlight(matcher.group(1), matcher.group(2), matcher.group(5));
   }
 }
