@@ -14,7 +14,12 @@ import org.springframework.context.annotation.Import;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-@Import({AmazonKindleHighlightParser.class, NotionAuthInterceptor.class, NotionProvider.class})
+@Import({
+  AmazonKindleHighlightParser.class,
+  NotionAuthInterceptor.class,
+  NotionProvider.class,
+  NotionSyncService.class
+})
 @EnableConfigurationProperties
 final class HighlightNotionSyncServiceConfig {
   @Bean

@@ -107,7 +107,7 @@ final class NotionProvider {
             property -> Iterables.getOnlyElement(property.richText()),
             NotionTextPropertyResponse.class);
 
-    return new NotionHighlight(title, author, getHighlightsFromPage(page));
+    return new NotionHighlight(page.id(), title, author, getHighlightsFromPage(page));
   }
 
   /** Returns all the highlights of the given page stored in Notion. */

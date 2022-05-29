@@ -62,7 +62,7 @@ final class NotionProviderTest {
 
     assertThat(provider(client).getHighlights())
         .containsExactly(
-            new NotionHighlight("Nice book", "Serious Author", List.of("quote1", "quote2")));
+            new NotionHighlight(DEFAULT_PAGE_ID, "Nice book", "Serious Author", List.of("quote1", "quote2")));
   }
 
   @Test
@@ -103,8 +103,8 @@ final class NotionProviderTest {
 
     assertThat(provider(client).getHighlights())
         .containsExactly(
-            new NotionHighlight("Nice book", "Serious Author", List.of()),
-            new NotionHighlight("Another book", "Another Serious Author", List.of()));
+            new NotionHighlight(DEFAULT_PAGE_ID, "Nice book", "Serious Author", List.of()),
+            new NotionHighlight(DEFAULT_PAGE_ID, "Another book", "Another Serious Author", List.of()));
   }
 
   @Test
