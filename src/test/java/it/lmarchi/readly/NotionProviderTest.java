@@ -6,6 +6,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import it.lmarchi.readly.model.notion.CreateNotionBlockRequest;
+import it.lmarchi.readly.model.notion.CreateNotionChildrenRequest;
 import it.lmarchi.readly.model.notion.CreateNotionPageRequest;
 import it.lmarchi.readly.model.notion.NotionHighlight;
 import it.lmarchi.readly.model.notion.NotionPagePropertyResponse;
@@ -28,6 +29,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 @Tag("unit")
+@SuppressWarnings("unchecked")
 final class NotionProviderTest {
   private static final String AUTHOR_KEY = "Author";
   private static final String DATABASE_ID = "id";
@@ -188,7 +190,7 @@ final class NotionProviderTest {
 
     NotionClient client = mock(NotionClient.class);
     when(client.addBlocks(
-            DEFAULT_PAGE_ID, List.of(toBlockRequest("quote1"), toBlockRequest("quote2"))))
+            DEFAULT_PAGE_ID, blockRequest(child("quote1"), child("quote2"))))
         .thenReturn(callBlockResponse);
 
     assertThatCode(
@@ -226,7 +228,11 @@ final class NotionProviderTest {
     return CreateNotionPageRequest.of(DATABASE_ID, title, author, TITLE_KEY, AUTHOR_KEY, quotes);
   }
 
-  private static CreateNotionBlockRequest toBlockRequest(String quote) {
-    return CreateNotionBlockRequest.of(quote);
+  private static CreateNotionChildrenRequest child(String quote) {
+    return CreateNotionChildrenRequest.of(quote);
+  }
+
+  private static CreateNotionBlockRequest blockRequest(CreateNotionChildrenRequest... requests) {
+    return new CreateNotionBlockRequest(List.of(requests));
   }
 }

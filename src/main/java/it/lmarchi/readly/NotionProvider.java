@@ -2,6 +2,7 @@ package it.lmarchi.readly;
 
 import com.google.common.collect.Iterables;
 import it.lmarchi.readly.model.notion.CreateNotionBlockRequest;
+import it.lmarchi.readly.model.notion.CreateNotionChildrenRequest;
 import it.lmarchi.readly.model.notion.CreateNotionPageRequest;
 import it.lmarchi.readly.model.notion.NotionPagePropertyResponse;
 import it.lmarchi.readly.model.notion.NotionPagePropertyResponse.NotionTextPropertyResponse;
@@ -57,7 +58,7 @@ final class NotionProvider {
         .map(this::getHighlight)
         .peek(
             highlight ->
-                LOG.info(
+                LOG.debug(
                     "Found '{}' highlights for book '{}' of author '{}' in Notion",
                     highlight.quotes().size(),
                     highlight.title(),
@@ -81,10 +82,10 @@ final class NotionProvider {
 
   /** Adds the given highlights to the Notion page associated with the given ID. */
   void addHighlightsToPage(String pageId, List<String> highlights) {
-    List<CreateNotionBlockRequest> requests =
-        highlights.stream().map(CreateNotionBlockRequest::of).toList();
+    List<CreateNotionChildrenRequest> requests =
+        highlights.stream().map(CreateNotionChildrenRequest::of).toList();
     try {
-      notionClient.addBlocks(pageId, requests).execute();
+      notionClient.addBlocks(pageId, new CreateNotionBlockRequest(requests)).execute();
     } catch (IOException e) {
       throw new IllegalStateException(
           String.format("Failed to add highlights to page '%s' in Notion", pageId), e);
@@ -116,7 +117,7 @@ final class NotionProvider {
         .filter(NotionBlockResponse.class::isInstance)
         .map(NotionBlockResponse.class::cast)
         .flatMap(block -> block.quote().stream())
-        .flatMap(quote -> quote.text().stream())
+        .flatMap(quote -> quote.richText().stream())
         .map(NotionTextResponse::plainText)
         .toList();
   }
@@ -135,8 +136,7 @@ final class NotionProvider {
     }
 
     return Stream.concat(
-            response.results().stream(),
-            getPaginatedResult(notionRequest, response.nextCursor()));
+        response.results().stream(), getPaginatedResult(notionRequest, response.nextCursor()));
   }
 
   /** Executes the given request to Notion starting from the given cursor. */

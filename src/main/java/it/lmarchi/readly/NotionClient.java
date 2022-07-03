@@ -28,5 +28,5 @@ interface NotionClient {
       @Path("id") String id, @Nullable @Query("start_cursor") String startCursor);
 
   @PATCH("blocks/{id}/children")
-  Call<Void> addBlocks(@Path("id") String id, @Body List<CreateNotionBlockRequest> children);
+  Call<Void> addBlocks(@Path("id") String id, @Body CreateNotionBlockRequest request);
 }

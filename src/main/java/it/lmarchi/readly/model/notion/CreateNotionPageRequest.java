@@ -10,7 +10,7 @@ import java.util.Map;
  * @param parent The parent of the page.
  * @param properties The properties of the page to create.
  */
-public record CreateNotionPageRequest(ParentNotionPageRequest parent, Map<String, TextualNotionPageRequest> properties, List<CreateNotionBlockRequest> children) {
+public record CreateNotionPageRequest(ParentNotionPageRequest parent, Map<String, TextualNotionPageRequest> properties, List<CreateNotionChildrenRequest> children) {
   public static CreateNotionPageRequest of(String databaseId, String title, String author, String titleColumn, String authorColumn, List<String> quotes) {
     return new CreateNotionPageRequest(
         new ParentNotionPageRequest(databaseId),
@@ -20,7 +20,7 @@ public record CreateNotionPageRequest(ParentNotionPageRequest parent, Map<String
             authorColumn,
             new RichTextNotionPageRequest(List.of(new TextNotionPageRequest(new TextContentNotionPageRequest(author))))
         ),
-        quotes.stream().map(CreateNotionBlockRequest::of).toList());
+        quotes.stream().map(CreateNotionChildrenRequest::of).toList());
   }
 }
 

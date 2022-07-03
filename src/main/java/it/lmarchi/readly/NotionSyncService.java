@@ -7,9 +7,13 @@ import it.lmarchi.readly.model.kindle.KindleHighlight;
 import it.lmarchi.readly.model.notion.NotionHighlight;
 import java.util.List;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** A service that syncs highlights from Amazon Kindle to Notion. */
 final class NotionSyncService {
+  private static final Logger LOG = LoggerFactory.getLogger(NotionSyncService.class);
+
   private final AmazonKindleHighlightParser kindleHighlightParser;
   private final NotionProvider notionProvider;
 
@@ -26,9 +30,7 @@ final class NotionSyncService {
     ListMultimap<String, NotionHighlight> notionHighlightsByTitle =
         Multimaps.index(notionProvider.getHighlights(), NotionHighlight::title);
 
-    kindleHighlightsByTitle
-        .asMap()
-        .entrySet()
+    kindleHighlightsByTitle.asMap().entrySet().stream()
         .forEach(
             entry ->
                 syncHighlights(
@@ -48,14 +50,28 @@ final class NotionSyncService {
     List<String> quotesToSync = highlightsToSync.stream().map(KindleHighlight::content).toList();
 
     if (syncedHighlights.isEmpty()) {
+      LOG.info(
+          "Creating a new page and syncing {} highlights for book '{}' to Notion",
+          quotesToSync.size(),
+          kindleHighlight.title());
       notionProvider.createPage(kindleHighlight.title(), kindleHighlight.author(), quotesToSync);
     } else {
       NotionHighlight notionHighlight = getAny(syncedHighlights);
       List<String> syncedQuotes =
           syncedHighlights.stream().flatMap(h -> h.quotes().stream()).toList();
 
-      notionProvider.addHighlightsToPage(
-          notionHighlight.pageId(), getDifferenceBetween(quotesToSync, syncedQuotes));
+      List<String> newHighlightsToSync = getDifferenceBetween(quotesToSync, syncedQuotes);
+
+      if (newHighlightsToSync.isEmpty()) {
+        LOG.debug("No new highlights to sync for book '{}'", notionHighlight.title());
+        return;
+      }
+
+      LOG.info(
+          "Syncing {} highlights for book '{}' to Notion",
+          newHighlightsToSync.size(),
+          kindleHighlight.title());
+      notionProvider.addHighlightsToPage(notionHighlight.pageId(), newHighlightsToSync);
     }
   }
 

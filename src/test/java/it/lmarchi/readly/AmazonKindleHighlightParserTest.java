@@ -10,17 +10,14 @@ import org.junit.jupiter.api.Test;
 @Tag("unit")
 final class AmazonKindleHighlightParserTest {
   private static final KindleHighlight HIGHLIGHT_1 =
-      new KindleHighlight(
-          "Test title with (parentheses)",
-          "Author",
-          "Hello people!");
+      new KindleHighlight("Test title with (parentheses)", "Author", "Hello people!");
   private static final KindleHighlight HIGHLIGHT_2 =
-      new KindleHighlight(
-          "Another book", "Author1;Author2", "Another content.");
+      new KindleHighlight("Another book", "Author1;Author2", "Another content.");
 
   @Test
   void getHighlights() {
-    AmazonKindleHighlightParser parser = new AmazonKindleHighlightParser("src/test/resources");
+    AmazonKindleHighlightParser parser =
+        new AmazonKindleHighlightParser("src/test/resources/documents");
 
     assertThat(parser.getHighlights()).containsExactly(HIGHLIGHT_1, HIGHLIGHT_2);
   }

@@ -20,7 +20,8 @@ final class CommandRunner implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
-    new CommandLine(command, factory).execute(args);
+    int statusCode = new CommandLine(command, factory).execute(args);
+    System.exit(statusCode);
   }
 
   /** The CLI command that syncs the highlights from Kindle to Notion. */

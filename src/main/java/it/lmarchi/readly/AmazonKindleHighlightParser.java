@@ -20,10 +20,10 @@ final class AmazonKindleHighlightParser {
           "^(.*)\s\\((.*)\\)(\\r?\\n|\\r)-.*(\\r?\\n|\\r){2}(.*)(\\r?\\n|\\r)={10}(\\r?\\n|\\r)+",
           Pattern.MULTILINE);
 
-  private final String kindleDeviceBasePath;
+  private final String kindleHighlightsBasePath;
 
-  AmazonKindleHighlightParser(@Value("${amazon-kindle.base-path}") String kindleDeviceBasePath) {
-    this.kindleDeviceBasePath = kindleDeviceBasePath;
+  AmazonKindleHighlightParser(@Value("${kindle-highlights.base-path}") String kindleHighlightsBasePath) {
+    this.kindleHighlightsBasePath = kindleHighlightsBasePath;
   }
 
   /** Returns the highlights of the books in the provided Amazon Kindle device. */
@@ -34,14 +34,14 @@ final class AmazonKindleHighlightParser {
         .results()
         .map(AmazonKindleHighlightParser::toHighlight)
         .peek(highlight ->
-            LOG.info("Found the highlight for book '{}' of author '{}'", highlight.title(), highlight.author()))
+            LOG.debug("Found highlight for book '{}' of author '{}': {}", highlight.title(), highlight.author(), highlight.content()))
         .filter(highlight -> !highlight.content().isEmpty())
         .toList();
   }
 
   /** Returns the content of the file containing the Kindle highlights. */
   private String getClippingFileContent() {
-    Path clippingFile = Path.of(kindleDeviceBasePath, "documents", "My clippings.txt");
+    Path clippingFile = Path.of(kindleHighlightsBasePath,  "My clippings.txt");
     try {
       return Files.readString(clippingFile);
     } catch (IOException e) {
