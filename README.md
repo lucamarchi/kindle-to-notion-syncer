@@ -67,7 +67,7 @@ be synced to Notion.
 *Kindle to Notion Syncer* runs as Docker container; it can be executed running 
 the following command:
 ```
-docker run -e JAVA_OPTIONS="-Dnotion.book.database-id=<notion-database-id> -Dnotion.api-key=<notion-api-key>" -p 8080:8080 -v <kindle-documents-base-path>:/documents lucamarchi/readly:latest
+docker run -e JAVA_OPTIONS="-Dnotion.book.database-id=<notion-database-id> -Dnotion.api-key=<notion-api-key>" -p 8080:8080 -v <kindle-documents-base-path>:/documents lucamarchi/notion-to-kindle-syncer:0.0.1
 ```
 where:
 * `<notion-database-id>` is the ID of the database where the highlights are 
