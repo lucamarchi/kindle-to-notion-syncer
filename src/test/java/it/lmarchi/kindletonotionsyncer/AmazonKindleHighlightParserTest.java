@@ -1,9 +1,9 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import it.lmarchi.readly.model.kindle.KindleHighlight;
+import it.lmarchi.kindletonotionsyncer.model.kindle.KindleHighlight;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 

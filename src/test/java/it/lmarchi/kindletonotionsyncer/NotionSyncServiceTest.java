@@ -1,4 +1,4 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.ArgumentMatchers.any;
@@ -7,8 +7,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import it.lmarchi.readly.model.kindle.KindleHighlight;
-import it.lmarchi.readly.model.notion.NotionHighlight;
+import it.lmarchi.kindletonotionsyncer.model.kindle.KindleHighlight;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionHighlight;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Tag;

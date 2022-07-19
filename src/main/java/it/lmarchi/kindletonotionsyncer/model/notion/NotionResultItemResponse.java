@@ -1,9 +1,9 @@
-package it.lmarchi.readly.model.notion;
+package it.lmarchi.kindletonotionsyncer.model.notion;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import it.lmarchi.readly.model.notion.NotionResultItemResponse.NotionBlockResponse;
-import it.lmarchi.readly.model.notion.NotionResultItemResponse.NotionPageResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionResultItemResponse.NotionBlockResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionResultItemResponse.NotionPageResponse;
 import java.util.Map;
 import java.util.Optional;
 

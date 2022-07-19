@@ -1,6 +1,6 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
-import it.lmarchi.readly.model.kindle.KindleHighlight;
+import it.lmarchi.kindletonotionsyncer.model.kindle.KindleHighlight;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

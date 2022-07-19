@@ -1,10 +1,10 @@
-package it.lmarchi.readly.model.notion;
+package it.lmarchi.kindletonotionsyncer.model.notion;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import it.lmarchi.readly.model.notion.NotionPagePropertyResponse.NotionTextPropertyResponse;
-import it.lmarchi.readly.model.notion.NotionPagePropertyResponse.NotionTitlePropertyResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPagePropertyResponse.NotionTextPropertyResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPagePropertyResponse.NotionTitlePropertyResponse;
 import java.util.List;
 
 /** Represents the property values of a page in Notion. */

@@ -1,4 +1,4 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
 import java.io.IOException;
 import okhttp3.Interceptor;

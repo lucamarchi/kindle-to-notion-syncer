@@ -1,4 +1,4 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_INVALID_SUBTYPE;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;

@@ -1,22 +1,22 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import it.lmarchi.readly.model.notion.CreateNotionBlockRequest;
-import it.lmarchi.readly.model.notion.CreateNotionChildrenRequest;
-import it.lmarchi.readly.model.notion.CreateNotionPageRequest;
-import it.lmarchi.readly.model.notion.NotionHighlight;
-import it.lmarchi.readly.model.notion.NotionPagePropertyResponse;
-import it.lmarchi.readly.model.notion.NotionPagePropertyResponse.NotionTextPropertyResponse;
-import it.lmarchi.readly.model.notion.NotionPaginatedRequest;
-import it.lmarchi.readly.model.notion.NotionPaginatedResponse;
-import it.lmarchi.readly.model.notion.NotionQuoteResponse;
-import it.lmarchi.readly.model.notion.NotionResultItemResponse.NotionBlockResponse;
-import it.lmarchi.readly.model.notion.NotionResultItemResponse.NotionPageResponse;
-import it.lmarchi.readly.model.notion.NotionTitleTextResponse.NotionTextResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.CreateNotionBlockRequest;
+import it.lmarchi.kindletonotionsyncer.model.notion.CreateNotionChildrenRequest;
+import it.lmarchi.kindletonotionsyncer.model.notion.CreateNotionPageRequest;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionHighlight;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPagePropertyResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPagePropertyResponse.NotionTextPropertyResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPaginatedRequest;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPaginatedResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionQuoteResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionResultItemResponse.NotionBlockResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionResultItemResponse.NotionPageResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionTitleTextResponse.NotionTextResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;

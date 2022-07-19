@@ -1,10 +1,10 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
-import it.lmarchi.readly.model.kindle.KindleHighlight;
-import it.lmarchi.readly.model.notion.NotionHighlight;
+import it.lmarchi.kindletonotionsyncer.model.kindle.KindleHighlight;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionHighlight;
 import java.util.List;
 import java.util.Set;
 import org.slf4j.Logger;

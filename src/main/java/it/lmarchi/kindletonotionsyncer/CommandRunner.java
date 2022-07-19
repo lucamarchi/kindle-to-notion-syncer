@@ -1,6 +1,6 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
-import it.lmarchi.readly.CommandRunner.HighlightsSyncCommand;
+import it.lmarchi.kindletonotionsyncer.CommandRunner.HighlightsSyncCommand;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Import;
 import picocli.CommandLine;

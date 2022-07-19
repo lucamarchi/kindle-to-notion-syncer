@@ -1,4 +1,4 @@
-package it.lmarchi.readly.model.notion;
+package it.lmarchi.kindletonotionsyncer.model.notion;
 
 import java.util.Optional;
 

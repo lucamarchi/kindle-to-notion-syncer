@@ -1,9 +1,9 @@
-package it.lmarchi.readly.model.notion;
+package it.lmarchi.kindletonotionsyncer.model.notion;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import it.lmarchi.readly.model.notion.NotionTitleTextResponse.NotionTextResponse;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionTitleTextResponse.NotionTextResponse;
 
 /** Represents a text title property response. */
 @JsonTypeInfo(

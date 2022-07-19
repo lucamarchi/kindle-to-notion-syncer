@@ -1,4 +1,4 @@
-package it.lmarchi.readly.model.kindle;
+package it.lmarchi.kindletonotionsyncer.model.kindle;
 
 import java.util.Objects;
 

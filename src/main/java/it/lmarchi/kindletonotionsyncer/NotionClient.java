@@ -1,10 +1,9 @@
-package it.lmarchi.readly;
+package it.lmarchi.kindletonotionsyncer;
 
-import it.lmarchi.readly.model.notion.CreateNotionBlockRequest;
-import it.lmarchi.readly.model.notion.CreateNotionPageRequest;
-import it.lmarchi.readly.model.notion.NotionPaginatedRequest;
-import it.lmarchi.readly.model.notion.NotionPaginatedResponse;
-import java.util.List;
+import it.lmarchi.kindletonotionsyncer.model.notion.CreateNotionBlockRequest;
+import it.lmarchi.kindletonotionsyncer.model.notion.CreateNotionPageRequest;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPaginatedRequest;
+import it.lmarchi.kindletonotionsyncer.model.notion.NotionPaginatedResponse;
 import javax.annotation.Nullable;
 import retrofit2.Call;
 import retrofit2.http.Body;
